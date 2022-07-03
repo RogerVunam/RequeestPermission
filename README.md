@@ -21,7 +21,20 @@ private fun selectImage() {
 ```
 
 
-# Step 3 : Tạo fun requestPermission
+# Step 3.  Sử dụng registerActivityForResult để lấy request code
+```
+private var someActivityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == AppCompatActivity.RESULT_OK) {
+            val data = result.data
+            imagePath = data!!.data
+            Picasso.get().load(imagePath).into(binding.civAvatar)
+        }
+
+}
+```
+
+
+# Step 4 : Tạo fun requestPermission
 ```
 private fun requestPermission() {
         if (ContextCompat.checkSelfPermission(
@@ -61,7 +74,20 @@ private fun accessCamera() {
 ```
 
 
-# Step 3 : Tạo fun requestPermission
+# Step 3.  Sử dụng registerActivityForResult để lấy request code
+```
+private var someActivityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == AppCompatActivity.RESULT_OK) {
+            val data = result.data
+            imagePath = data!!.data
+            Picasso.get().load(imagePath).into(binding.civAvatar)
+        }
+
+}
+```
+
+
+# Step 4 : Tạo fun requestPermission
 ```
 private fun requestPermission() {
         if (ContextCompat.checkSelfPermission(
